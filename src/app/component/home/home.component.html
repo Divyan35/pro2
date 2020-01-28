@@ -1,0 +1,83 @@
+<h3>Youtube</h3>
+
+<input type="text" [(ngModel)]="searchresult" name="searchresult" placeholder="search here">
+<button (click)="search()">Search</button>
+<br>
+<br>
+
+<div class="row">
+
+  <div class="col-8">
+
+    <div *ngFor="let video of firstvideo;let i=index;">
+        <div *ngIf="i==0">
+        <div class="card border-0 shadow vh-50">
+            <div class="embed-responsive embed-responsive-21by9">
+            <youtube-player videoId="{{video.id.videoId}}" suggestedQuality="higres"
+            [height]="220"
+            [width]="320"
+            [startSeconds]="43"
+            [endSeconds]="80"></youtube-player>
+            </div>
+        <div class="card-body text-center">
+            <h5 class="card-title mb-0">
+                {{video.snippet.title}}</h5>
+                <p class="card-text">{{video.snippet.description}}</p>
+        </div>
+        </div>
+        </div> 
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="col-8">
+
+    <div *ngFor="let video of onevideo;let i=index;">
+        <div class="card border-0 shadow vh-50">
+            <div class="embed-responsive embed-responsive-21by9">
+            <youtube-player videoId="{{video.id.videoId}}" suggestedQuality="higres"
+            [height]="220"
+            [width]="320"
+            [startSeconds]="43"
+            [endSeconds]="80"></youtube-player>
+            </div>
+        <div class="card-body text-center">
+            <h5 class="card-title mb-0">
+                {{video.snippet.title}}</h5>
+                <p class="card-text">{{video.snippet.description}}</p>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-3">
+<div *ngFor="let video of videos;let i=index;">
+    <div *ngIf="i<10">
+        
+                
+                <div class="card mb-3" style="max-width: 550px;" (click)="oncardclick(i)">
+                    <div class="row no-gutters">
+                      <div class="col-md-5">
+                        <img [src]="video.snippet.thumbnails.medium.url" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-7">
+                        <div class="card-body">
+                          <h6 class="card-title">{{video.snippet.title}}</h6>
+                          
+                          <p class="card-text"><small class="text-muted">Published At : {{video.snippet.publishedAt}}</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+           
+
+    </div>
+</div>
+</div>
+
+</div>
